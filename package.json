@@ -17,10 +17,13 @@
   },
   "homepage": "https://github.com/zhengqiangzi/mycloud#readme",
   "devDependencies": {
-    "vue": "^2.4.2"
+    "vue": "^2.4.2",
+    "vue-lazy": "^1.0.0",
+    "vue-lazy-images": "^1.4.2"
   },
   "dependencies": {
     "axios": "^0.16.2",
-    "vue-axios": "^2.0.2"
+    "vue-axios": "^2.0.2",
+    "vue-lazy": "^1.0.0"
   }
 }

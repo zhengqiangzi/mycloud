@@ -33,3 +33,20 @@ img{
 	max-width: 100%;
 	height: auto;
 }
+.pp{
+	position: fixed;
+	left:0px;
+	top:0px;
+	right:0px;
+	bottom:0px;
+	background-color:rgba(123,123,123,1);
+	z-index:1000;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.pp img{
+	max-height: 100%;
+	width: auto;
+}
