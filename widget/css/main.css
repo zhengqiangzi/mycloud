@@ -18,9 +18,13 @@ ul{
 
 }
 ul>li{
-	width: 100%;
+	width: 24%;
+	height: 120px;
 	overflow: hidden;
-	border-bottom:1px dashed rgba(123,123,123,.5);
+	border:1px dashed rgba(123,123,123,.5);
 	padding: 5px 0px 5px 0px;
 	margin-bottom: 5px;
+	margin-right: 1%;
+	display: inline-block;
+
 }
