@@ -1,6 +1,2 @@
-<widget id="A6059788179741" version="0.0.1"> 
-
-	<content src="index.html" />
-	<access origin="*" />
-    <preference name="windowBackground" value="#FFF" />
+<widget id="A6059788179741" version="0.0.1">
 </widget>
