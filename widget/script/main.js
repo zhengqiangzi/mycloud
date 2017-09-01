@@ -72,7 +72,7 @@
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 
-apiready = function(){
+window.apiready = function(){
 	 var vm=new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 	    el: '#main',
 		data:{	

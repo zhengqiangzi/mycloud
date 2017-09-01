@@ -1,5 +1,5 @@
 import Vue from 'vue';
-apiready = function(){
+window.apiready = function(){
 	 var vm=new Vue({
 	    el: '#main',
 		data:{	
