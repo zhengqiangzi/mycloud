@@ -1,1 +1,9 @@
-<widget id="A6059788179741" version="0.0.1"></widget>
+<widget id="A6059788179741" version="0.0.1">
+	<name>HelloApp</name>
+	<description>API Example App.</description>
+	<author email="zhengqiangzi123@163.com" href="http://www.apicloud.com">johnny</author>
+	<content src="index.html" />
+	<access origin="*" />
+	<preference name="windowBackground" value="#FFF" />
+	<permission name="call" />
+</widget>
