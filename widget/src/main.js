@@ -1,60 +1,58 @@
 import Vue from 'vue';
+apiready = function(){
+	 var vm=new Vue({
+	    el: '#main',
+		data:{	
 
+			delItem:null,
 
-var vm=new Vue({
-    el: '#main',
-	data:{	
+			glist:(function(){
+				var a=[]
 
-		delItem:null,
+				var _list=(function(){
 
-		glist:(function(){
-			var a=[]
+					for(var i=0;i<=100;i++){
 
-			var _list=(function(){
+						a.push({id:i+1,name:"name"+i})
+					}
 
-				for(var i=0;i<=100;i++){
+				})()
 
-					a.push({id:i+1,name:"name"+i})
-				}
+				return a;
 
 			})()
 
-			return a;
+		},
+		computed:{
+			list:function(){
 
-		})()
+				if(this.delItem) {
+					this.glist=this.glist.filter((item)=>{
+						return item.id!=this.delItem.id
+					})
+				}
 
-	},
-	computed:{
-		list:function(){
-
-			if(this.delItem) {
-				this.glist=this.glist.filter((item)=>{
-					return item.id!=this.delItem.id
-				})
+				
+				return this.glist;
+				
 			}
 
-			
-			return this.glist;
-			
+		},
+		methods:{
+
+			clickHandler:function(item){
+				this.delItem=item;
+			}
+		},
+		mounted:function(){
+			this.$nextTick(()=>{
+				alert(api.appId)
+
+			})
 		}
+	})
 
-	},
-	methods:{
+}
+    
 
-		clickHandler:function(item){
-
-			this.delItem=item;
-		}
-	},
-	mounted:function(){
-
-
-		this.$nextTick(()=>{
-
-			alert(123)
-
-		})
-	}
-
-})
 
