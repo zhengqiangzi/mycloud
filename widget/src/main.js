@@ -1,4 +1,8 @@
 import Vue from 'vue';
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(VueAxios, axios)
+
 window.apiready = function(){
 	 var vm=new Vue({
 	    el: '#main',
@@ -46,13 +50,12 @@ window.apiready = function(){
 		},
 		mounted:function(){
 			this.$nextTick(()=>{
-				//alert(api.appId)
-				api.alert({
-				    title: 'testtitle',
-				    msg: 'testmsg',
-				}, function(ret, err) {
 
-				});
+				this.axios.get("http://vcenter-shop.com/menu.json").then((response) => {
+					 alert(response.data)
+				})
+
+			
 			})
 		}
 	})
