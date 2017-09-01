@@ -51,7 +51,7 @@ var vm=new Vue({
 
 		this.$nextTick(()=>{
 
-			alert(api.appId)
+			alert(123)
 
 		})
 	}

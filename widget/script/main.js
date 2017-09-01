@@ -124,7 +124,7 @@ var vm=new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 
 		this.$nextTick(()=>{
 
-			alert(api.appId)
+			alert(123)
 
 		})
 	}
