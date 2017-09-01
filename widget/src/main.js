@@ -46,8 +46,13 @@ window.apiready = function(){
 		},
 		mounted:function(){
 			this.$nextTick(()=>{
-				alert(api.appId)
+				//alert(api.appId)
+				api.alert({
+				    title: 'testtitle',
+				    msg: 'testmsg',
+				}, function(ret, err) {
 
+				});
 			})
 		}
 	})
