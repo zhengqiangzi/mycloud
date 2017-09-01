@@ -12,7 +12,7 @@
 		
 		<ul>
 			<li v-for="item in list" @click="clickHandler(item)">
-				{{item.name}}
+				<img :src="item.path"/>
 			</li>
 
 		</ul>

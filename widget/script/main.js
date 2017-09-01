@@ -87,21 +87,7 @@ window.apiready = function(){
 
 			delItem:null,
 
-			glist:(function(){
-				var a=[]
-
-				var _list=(function(){
-
-					for(var i=0;i<=100;i++){
-
-						a.push({id:i+1,name:"name"+i})
-					}
-
-				})()
-
-				return a;
-
-			})()
+			glist:[]
 
 		},
 		computed:{
@@ -128,9 +114,13 @@ window.apiready = function(){
 		mounted:function(){
 			this.$nextTick(()=>{
 
-				this.axios.get("http://vcenter-shop.com/menu.json").then((response) => {
-					 alert(response.data)
+				this.axios.get("http://vcenter-shop.com/menu.json").then((data)=>{
+
+					this.glist=data.data
+
+
 				})
+			
 
 			
 			})
