@@ -11989,7 +11989,7 @@ var vm=new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 				this.glist=data.data
 				loading.close()
 			 })
-		 },5000)
+		 })
 
 
 	 })

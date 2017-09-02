@@ -42,7 +42,7 @@ var vm=new Vue({
 				this.glist=data.data
 				loading.close()
 			 })
-		 },5000)
+		 })
 
 
 	 })
