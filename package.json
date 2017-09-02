@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "element-ui": "^1.4.3",
     "vue-axios": "^2.0.2",
     "vue-lazy": "^1.0.0"
   }

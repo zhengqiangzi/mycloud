@@ -1,13 +1,24 @@
 import Vue from 'vue';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import Lazyload from "vue-lazyload-img"
-Vue.use(Lazyload)
+import {Loading } from 'element-ui'
+Vue.use(Loading)
 Vue.use(VueAxios, axios)
 var vm=new Vue({
  data:{
 	 delItem:null,
-	 glist:[]
+	 glist:[
+	 		{id:1,path:"./image/temp.png"},
+	 		{id:2,path:"./image/temp.png"},
+	 		{id:3,path:"./image/temp.png"},
+	 		{id:4,path:"./image/temp.png"},
+	 		{id:5,path:"./image/temp.png"},
+	 		{id:6,path:"./image/temp.png"},
+	 		{id:7,path:"./image/temp.png"},
+	 		{id:8,path:"./image/temp.png"},
+	 		{id:9,path:"./image/temp.png"},
+
+	 ]
  },
  computed:{
 	 list:function(){
@@ -25,11 +36,13 @@ var vm=new Vue({
  mounted:function(){
 	 this.$nextTick(()=>{
 
+		 var loading=this.$loading();
 		 setTimeout(()=>{
-				 this.axios.get("./menu.json").then((data)=>{
-					 this.glist=data.data
-				 })
-		 },0)
+			 this.axios.get("./menu.json").then((data)=>{
+				this.glist=data.data
+				loading.close()
+			 })
+		 },5000)
 
 
 	 })
@@ -38,7 +51,7 @@ var vm=new Vue({
 
 
 
-		window.apiready = function(){
+		//window.apiready = function(){
 /*
 			api.setScreenOrientation({
 			    orientation: 'landscape_left'
@@ -47,4 +60,4 @@ var vm=new Vue({
 					vm.$mount("#main")
 
 
-		}
+		//}
