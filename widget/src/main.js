@@ -49,15 +49,9 @@ var vm=new Vue({
  }
 })
 
-
-
-		//window.apiready = function(){
-/*
-			api.setScreenOrientation({
-			    orientation: 'landscape_left'
-			});
-*/
-					vm.$mount("#main")
-
-
-		//}
+window.apiready = function(){
+	api.setScreenOrientation({
+	    orientation: 'landscape_left'
+	});
+	vm.$mount("#main")
+}

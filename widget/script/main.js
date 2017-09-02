@@ -11996,18 +11996,12 @@ var vm=new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
  }
 })
 
-
-
-		//window.apiready = function(){
-/*
-			api.setScreenOrientation({
-			    orientation: 'landscape_left'
-			});
-*/
-					vm.$mount("#main")
-
-
-		//}
+window.apiready = function(){
+	api.setScreenOrientation({
+	    orientation: 'landscape_left'
+	});
+	vm.$mount("#main")
+}
 
 
 /***/ },
