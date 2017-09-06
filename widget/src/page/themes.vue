@@ -5,7 +5,7 @@
 
 		render(createElement){
 
-			return createElement('div','Search')
+			return createElement('div','Themes')
 		}
 		
 	}

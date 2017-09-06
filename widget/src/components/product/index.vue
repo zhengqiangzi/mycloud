@@ -27,7 +27,7 @@
 						{
 							this.proudct_list.map(( item )=>{
 
-								return <div><img src={item.path}/></div>
+								return <router-link tag="div" to="/themes"><img src={item.path}/></router-link>
 
 							})
 						}
@@ -50,7 +50,11 @@
 				var a=[]
 				for(var i=0;i<=100;i++){
 
-					a.push({id:i+1,path:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4029196617,2881337927&fm=11&gp=0.jpg"})
+					a.push({
+						id:i+1,
+						path:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4029196617,2881337927&fm=11&gp=0.jpg",
+						price:Math.ceil(Math.random()*100)
+					})
 				}
 				return a
 			},
@@ -89,6 +93,7 @@
 		height:100%;
 		width:20%;
 		background-color:rgba(220,220,220,.3);
+		overflow-y:auto;
 	}
 	.product-left-ul{
 		width:100%;
