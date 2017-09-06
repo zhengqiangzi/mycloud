@@ -6,15 +6,40 @@ module.exports={
 		filename:"[name].js"
 	},
 	resolve: {
-	alias: {
-		'vue$': 'vue/dist/vue.common.js'
-	},
-	// "root": __dirname,
-	// extensions: ['', '.js', '.css', '.scss', '.hbs'],
-	extensions: [".ts", ".tsx", ".js", ".json",".vue"],
-	modules: ['.', 'node_modules']
+
+		alias: {
+			'vue$': 'vue/dist/vue.min.js'
+		},
+		// "root": __dirname,
+		// extensions: ['', '.js', '.css', '.scss', '.hbs'],
+		extensions: [".js",".vue"],
 		// 模块查找路径设置
+		modules: ['.', 'node_modules'],
+
+
 
 	},
+	module: {
 
+		rules: [
+				{
+					test:/\.js$/,
+					use:[
+						{loader:"babel-loader"},
+
+					],
+				},
+				{
+					test: /\.vue$/,
+					use:[
+						{loader:'babel-loader'},
+						{loader:'vue-loader'},
+					]
+				}, 
+				{
+					test: /\.(s?css)\??.*$/i,
+					use:[{loader:"sass-loader"}]
+				}
+			]
+	}	
 }

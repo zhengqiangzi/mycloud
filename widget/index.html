@@ -4,29 +4,18 @@
 <head>
     <meta charset="utf-8" />
     <title>test</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-default/index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/main.css"/>
 
-    <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
 
     <div id="main">
-
-				<div v-if="delItem" class="pp" @click="closePp()">
-
-						<img :src="delItem.path" alt=""  />
-
-				</div>
-        <ul>
-            <li v-for="item in list" @click="clickHandler(item)">
-                <img :src="item.path"    :blur="30"/>
-            </li>
-
-        </ul>
-
-
+ <!--    	<router-link to="home">home</router-link>
+ <router-link to="product">product</router-link>
+ <router-link to="search">search</router-link> -->
+     	<router-view></router-view>
     </div>
 
 
