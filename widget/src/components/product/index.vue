@@ -55,14 +55,7 @@
 				return this.$store.getters.category_list || [];
 			}
 		},
-		watch:{
-
-			$route:function(){
-
-				console.log(123)
-			}
-
-		},
+		
 
 		mounted:function(){
 

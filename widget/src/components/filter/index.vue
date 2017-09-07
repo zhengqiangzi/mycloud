@@ -94,8 +94,7 @@
 		text-decoration:none;
 		color:#000;
 		border:1px solid rgba(0,0,0,.5);
-		padding:10px;
-		min-height:120px;
+		height:120px;
 		display:inline-flex;
 		align-items:center;
 		justify-content:center;
