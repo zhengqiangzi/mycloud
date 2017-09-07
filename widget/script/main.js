@@ -28855,7 +28855,7 @@ exports.default = {
 	mounted: function mounted() {
 
 		this.$store.commit("filter_id", this.$route.params.fid);
-		document.body.style.overflow = "hidden";
+		//document.body.style.overflow="hidden";
 	},
 	watch: {
 
@@ -28930,7 +28930,7 @@ exports.default = {
 						);
 					})]
 				)]
-			), h(
+			), this.$route.params.fid ? null : h(
 				"div",
 				{ "class": "product-right" },
 				[this.proudct_list.map(function (item) {
@@ -28975,6 +28975,14 @@ exports.default = {
 		category_list: function category_list() {
 			return this.$store.getters.category_list || [];
 		}
+	},
+	watch: {
+
+		$route: function $route() {
+
+			console.log(123);
+		}
+
 	},
 
 	mounted: function mounted() {

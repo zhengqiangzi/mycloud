@@ -5,6 +5,7 @@
 			return (
 				<div class="product">
 					<div class="product-left">
+
 						<ul class="product-left-ul">
 							{
 								this.category_list.map((item)=>{
@@ -16,13 +17,18 @@
 							}
 						</ul>
 					</div>
-					<div class="product-right">
-						{
-							this.proudct_list.map(( item )=>{
-								return <router-link tag="div" to="/themes"><img src={item.path}/></router-link>
-							})
-						}
-					</div>
+
+					{
+						this.$route.params.fid ? null:
+							<div class="product-right">
+								{
+									this.proudct_list.map(( item )=>{
+										return <router-link tag="div" to="/themes"><img src={item.path}/></router-link>
+									})
+								}
+							</div>
+					}
+
 					<router-view></router-view>
 				</div>
 			)
@@ -48,6 +54,14 @@
 			category_list:function(){
 				return this.$store.getters.category_list || [];
 			}
+		},
+		watch:{
+
+			$route:function(){
+
+				console.log(123)
+			}
+
 		},
 
 		mounted:function(){
