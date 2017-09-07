@@ -10,7 +10,9 @@ let store=new Vuex.Store({
 	state:{
 		categroy_origin_source:null,
 		category_type:null,
-		filter_id:null
+		filter_id:null,
+		filter_list:new Set([]),
+		product_list:[]
 	},
 	getters:{
 		//获取分类信息。用于首页
@@ -33,15 +35,19 @@ let store=new Vuex.Store({
 		},
 
 		filter_list_by_category:(state)=>{
-			//console.log(store.getters.category_list)
-			//console.log(state.filter_id)
-
 			var _index =  _.findIndex(store.getters.category_list,{id:parseInt(state.filter_id)});
+			return _index < 0 ? [] : store.getters.category_list[_index].child || [{title:store.getters.category_list[_index].title,id:store.getters.category_list[_index].id}]
+		},
 
-			return _index < 0 ? [] : store.getters.category_list[_index].child || [{title:"全部",id:-1}]
- 
-			//console.log(state.category_type)
-			//console.log(state.filter_id)
+		get_filter_list:(state)=>{
+
+			return state.filter_list
+
+		},
+		get_product_list:(state)=>{
+			return state.product_list
+		},
+		get_one_product:(state)=>{
 
 
 		}
@@ -60,7 +66,21 @@ let store=new Vuex.Store({
 		filter_id:(state,_data)=>{
 
 			state.filter_id=_data
+		},
+		addFilter:(state,_data)=>{
+
+			state.filter_list.add(_data)
+
+			//console.log(state.filter_list)
+		
+
+		},
+		make_product:(state,_data)=>{
+
+			state.product_list=_data
+
 		}
+
 
 
 	}

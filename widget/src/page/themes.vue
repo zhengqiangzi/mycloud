@@ -1,13 +1,18 @@
 <script>
+	import ThemesComponents from '../components/themes/index.vue';
 
 	export default {
 
 
-		render(createElement){
+		render(h){
 
-			return createElement('div','Themes')
+			return (<themes-components></themes-components>)
+
+		},
+		components:{
+
+			"themes-components":ThemesComponents
 		}
-		
 	}
 
 </script>

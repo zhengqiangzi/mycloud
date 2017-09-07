@@ -23,7 +23,7 @@
 							<div class="product-right">
 								{
 									this.proudct_list.map(( item )=>{
-										return <router-link tag="div" to="/themes"><img src={item.path}/></router-link>
+										return <router-link tag="div" to={"/themes/"+item.id}><img src={item.path}/></router-link>
 									})
 								}
 							</div>
@@ -41,21 +41,25 @@
 		},
 		computed:{
 			proudct_list:function(){
-				var a=[]
-				for(var i=0;i<=100;i++){
-					a.push({
-						id:i+1,
-						path:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4029196617,2881337927&fm=11&gp=0.jpg",
-						price:Math.ceil(Math.random()*100)
-					})
-				}
-				return a
+
+
+				return this.$store.getters.get_product_list
+
 			},
+
 			category_list:function(){
+
 				return this.$store.getters.category_list || [];
+
 			}
 		},
-		
+		watch:{
+
+			$route:function(){
+				//console.log(this.$store.getters.get_filter_list)
+				this.$store.commit("categorytype",this.$route.params.pid)
+			}
+		},
 
 		mounted:function(){
 
@@ -116,6 +120,9 @@
 		margin-bottom:10px;
 		margin-right:10px;
 		overflow:hidden;
+		display:flex;
+		align-items:center;
+		justify-content:center;
 	}
 	.product-right>div img{
 		max-width:100%;

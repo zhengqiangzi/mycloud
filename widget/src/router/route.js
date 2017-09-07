@@ -6,8 +6,8 @@ import Filter from "../components/filter"
 export let route=[
 	{ path:"/",redirect:"/home" },
 	{ path:"/home",component:Home },
-	{ path:"/themes",component:Themes },
-	{ path:"/product/:pid",component:Product,
+	{ path:"/themes/:tid",component:Themes },
+	{ path:"/product/:pid",name:"product",component:Product,
 	  children:[
 
 	  		{path:"filter/:fid",component:Filter}
