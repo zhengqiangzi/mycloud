@@ -47,7 +47,7 @@
 		methods:{
 
 			addFilter:function(_data){
-				
+
 				console.log(_data)
 			},
 
@@ -60,7 +60,7 @@
 		mounted:function(){
 
 			this.$store.commit("filter_id",this.$route.params.fid);
-			document.body.style.overflow="hidden";
+			//document.body.style.overflow="hidden";
 
 		},
 		watch:{
