@@ -30,6 +30,13 @@ module.exports={
 					],
 				},
 				{
+					test:/\.json$/,
+					use:[
+						{loader:"json-loader"},
+
+					],
+				},
+				{
 					test: /\.vue$/,
 					use:[
 						{loader:'babel-loader'},

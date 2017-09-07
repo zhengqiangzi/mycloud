@@ -3,9 +3,11 @@
 		render(h){
 			return (
 				<div class='home'>
-					<router-link tag="div" to="product/1" class='home-item'>壁纸</router-link>
-					<router-link tag="div" to="product/2" class='home-item'>窗帘</router-link>
-					<router-link tag="div" to="product/3" class='home-item'>饰品</router-link>
+					{
+						this.$store.getters.category.map( ( item ) => {
+							return <router-link tag="div" to={"product/"+item.id} class='home-item'>{item.title}</router-link>
+						})
+					}
 				</div>
 			)
 		}

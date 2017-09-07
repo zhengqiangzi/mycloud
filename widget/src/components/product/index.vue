@@ -2,54 +2,41 @@
 	export default {
 
 		render(h){
-
 			return (
-
 				<div class="product">
-					
 					<div class="product-left">
 						<ul class="product-left-ul">
-							
 							{
 								this.category_list.map((item)=>{
-
-									return <li>{item.title}</li>
-
+									return <li>
+									<router-link tag="a" to={"/product/"+this.$route.params.pid+"/filter/"+item.id}>
+									{item.title}
+									</router-link></li>
 								})
 							}
-						
 						</ul>
 					</div>
-
-
 					<div class="product-right">
-						
 						{
 							this.proudct_list.map(( item )=>{
-
 								return <router-link tag="div" to="/themes"><img src={item.path}/></router-link>
-
 							})
 						}
 					</div>
-
-
+					<router-view></router-view>
 				</div>
 			)
-
 		},
 
 		data:function(){
 			return {
 
 			}
-
 		},
 		computed:{
 			proudct_list:function(){
 				var a=[]
 				for(var i=0;i<=100;i++){
-
 					a.push({
 						id:i+1,
 						path:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4029196617,2881337927&fm=11&gp=0.jpg",
@@ -59,17 +46,13 @@
 				return a
 			},
 			category_list:function(){
-
-				var pid = this.$route.params.pid||0
-				var p=[]
-				for(var i=0;i<=10;i++){
-
-					p.push({id:i+1,title:pid+"分类"+i})
-
-				}
-				return p;
-
+				return this.$store.getters.category_list || [];
 			}
+		},
+
+		mounted:function(){
+
+			this.$store.commit("categorytype",this.$route.params.pid)
 		}
 
 
@@ -108,7 +91,10 @@
 		border-bottom:1px dashed rgba(200,200,200,.7);
 
 	}
-
+	.product-left-ul>li>a{
+		text-decoration:none;
+		color:rgba(0,0,0,.8);
+	}
 	.product-right{
 		width:calc( 80% - 10px );
 		float:right;
@@ -124,10 +110,10 @@
 		margin-right:10px;
 		overflow:hidden;
 	}
-		.product-right>div img{
-			max-width:100%;
-			height:auto;
-		}
+	.product-right>div img{
+		max-width:100%;
+		height:auto;
+	}
 
 
 </style>
