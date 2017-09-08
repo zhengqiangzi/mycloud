@@ -21,7 +21,13 @@
 									<li><label>产地：</label><span>{this.product.from}</span></li>
 									<li><label>尺寸：</label><span>{this.product.size}</span></li>
 									<li><label>价格：</label><span>{this.product.price}</span></li>
-									<li><el-button  type="success">收藏 </el-button></li>
+									<li>
+
+										{
+											this.has_fav ? <el-button  disabled={true} type="success" on-click={()=>{this.addFav()}}>收藏 </el-button>
+														 : <el-button  type="success" on-click={()=>{this.addFav()}}>收藏 </el-button>
+										}	
+									</li>
 								</ul>
 
 						</div>
@@ -37,7 +43,25 @@
 			
 			product:function(){
 				return this.$store.getters.get_one_product
+			},
+			has_fav:function(){
+
+				var g= this.$store.getters.fav.filter((item)=>{
+
+				 	return item.id==this.product.id
+				 })
+
+
+				return g.length?true:false
+
 			}
+		},
+		methods:{
+
+			addFav:function(){
+				this.$store.commit("addFav",this.product)
+			}
+
 		},
 		mounted:function(){
 

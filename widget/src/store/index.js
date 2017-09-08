@@ -12,6 +12,7 @@ let store=new Vuex.Store({
 		category_type:null,
 		filter_id:null,
 		filter_list:new Set([]),
+		fav_list:[],
 		product_list:[
 						{	id:1,
 							path:"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3198575405,2185682170&fm=27&gp=0.jpg",
@@ -115,6 +116,9 @@ let store=new Vuex.Store({
 
 			return g[0] || null
 
+		},
+		fav:(state)=>{
+			return state.fav_list || []
 		}
 	},
 	mutations:{
@@ -140,8 +144,13 @@ let store=new Vuex.Store({
 		},
 		themes_product:(state,_data)=>{
 
-			console.log(_data)
 			state.tid=_data
+
+		},
+
+		addFav:(state,_data)=>{
+
+			state.fav_list.push(_data)
 
 		}
 

@@ -7625,6 +7625,7 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 		category_type: null,
 		filter_id: null,
 		filter_list: new Set([]),
+		fav_list: [],
 		product_list: [{ id: 1,
 			path: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3198575405,2185682170&fm=27&gp=0.jpg",
 			description: "this is a test for me",
@@ -7717,6 +7718,9 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 			});
 
 			return g[0] || null;
+		},
+		fav: function fav(state) {
+			return state.fav_list || [];
 		}
 	},
 	mutations: {
@@ -7741,8 +7745,12 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 		},
 		themes_product: function themes_product(state, _data) {
 
-			console.log(_data);
 			state.tid = _data;
+		},
+
+		addFav: function addFav(state, _data) {
+
+			state.fav_list.push(_data);
 		}
 
 	}
@@ -16412,13 +16420,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 					{
 						attrs: { type: "primary", icon: "star-on" }
 					},
-					["\u6536\u85CF ( 1 )"]
+					["\u6536\u85CF ( ", this.fav.length, " )"]
 				)]
 			)]
 		);
 	},
 
-	components: (_components = {}, _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_8_element_ui_lib_button___default.a.name, __WEBPACK_IMPORTED_MODULE_8_element_ui_lib_button___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_5_element_ui_lib_input___default.a.name, __WEBPACK_IMPORTED_MODULE_5_element_ui_lib_input___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_3_element_ui_lib_select___default.a.name, __WEBPACK_IMPORTED_MODULE_3_element_ui_lib_select___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_option___default.a.name, __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_option___default.a), _components)
+	components: (_components = {}, _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_8_element_ui_lib_button___default.a.name, __WEBPACK_IMPORTED_MODULE_8_element_ui_lib_button___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_5_element_ui_lib_input___default.a.name, __WEBPACK_IMPORTED_MODULE_5_element_ui_lib_input___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_3_element_ui_lib_select___default.a.name, __WEBPACK_IMPORTED_MODULE_3_element_ui_lib_select___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_option___default.a.name, __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_option___default.a), _components),
+	computed: {
+
+		fav: function fav() {
+			return this.$store.getters.fav;
+		}
+
+	}
 
 };
 
@@ -16530,6 +16545,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ exports["a"] = {
 	render: function render(h) {
+		var _this = this;
 
 		return h(
 			"div",
@@ -16601,10 +16617,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 					), h(
 						"li",
 						null,
-						[h(
+						[this.has_fav ? h(
 							"el-button",
 							{
-								attrs: { type: "success" }
+								attrs: { disabled: true, type: "success" },
+								on: {
+									"click": function click() {
+										_this.addFav();
+									}
+								}
+							},
+							["\u6536\u85CF "]
+						) : h(
+							"el-button",
+							{
+								attrs: { type: "success" },
+								on: {
+									"click": function click() {
+										_this.addFav();
+									}
+								}
 							},
 							["\u6536\u85CF "]
 						)]
@@ -16618,7 +16650,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 		product: function product() {
 			return this.$store.getters.get_one_product;
+		},
+		has_fav: function has_fav() {
+			var _this2 = this;
+
+			var g = this.$store.getters.fav.filter(function (item) {
+
+				return item.id == _this2.product.id;
+			});
+
+			return g.length ? true : false;
 		}
+	},
+	methods: {
+
+		addFav: function addFav() {
+			this.$store.commit("addFav", this.product);
+		}
+
 	},
 	mounted: function mounted() {
 

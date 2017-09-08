@@ -17,7 +17,7 @@
 						</li>
 
 						<li class="fav">
- 							<el-button type="primary" icon="star-on">收藏 ( 1 )</el-button>
+ 							<el-button type="primary" icon="star-on">收藏 ( {this.fav.length} )</el-button>
 						</li>
 				</ul>)
 
@@ -28,6 +28,15 @@
 			[Input.name]:Input,
 			[Select.name]:Select,
 			[Option.name]:Option,
+		},
+		computed:{
+
+			fav:function(){
+				return this.$store.getters.fav
+			}
+
+
+
 		}
 
 	}
