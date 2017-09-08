@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
+require("./sass/index.css")
+
 /*import axios from 'axios'
 import VueAxios from 'vue-axios'
 Vue.use(VueAxios, axios);*/

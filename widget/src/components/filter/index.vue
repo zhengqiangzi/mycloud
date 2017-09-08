@@ -25,7 +25,7 @@
 			)
 		},
 		components:{
-			[Button.name]:Button
+			"el-button":Button
 		},
 		computed:{
 			//二级搜索条件的列表

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import _ from 'lodash';
+import findIndex from 'lodash/findIndex';
 
 Vue.use(Vuex)
 
@@ -35,7 +35,7 @@ let store=new Vuex.Store({
 		},
 
 		filter_list_by_category:(state)=>{
-			var _index =  _.findIndex(store.getters.category_list,{id:parseInt(state.filter_id)});
+			var _index =  findIndex(store.getters.category_list,{id:parseInt(state.filter_id)});
 			return _index < 0 ? [] : store.getters.category_list[_index].child || [{title:store.getters.category_list[_index].title,id:store.getters.category_list[_index].id}]
 		},
 
