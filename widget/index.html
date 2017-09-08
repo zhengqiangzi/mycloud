@@ -12,10 +12,20 @@
 		 <!--<router-link to="home">home</router-link>
 		 <router-link to="product">product</router-link>
 		 <router-link to="search">search</router-link> -->
-     	<router-view></router-view>
+     	
+        <div style="position: fixed;width: 100%;height:calc( 100% - 60px );overflow:hidden;">
+            
+            <router-view></router-view>
+
+        </div>
+
+        <div style="z-index:10;position: fixed;width: 100%;bottom: 0px;height: 60px;">
+            
+               <oy-menu></oy-menu>
+
+        </div>
 
     </div>
-
     <script type="text/javascript" src="./script/main.js"></script>
 </body>
 

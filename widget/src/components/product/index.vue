@@ -73,18 +73,14 @@
 <style scoped>
 	
 	.product{
-
 		width:100%;
-		overflow:hidden;
 		position:relative;
 		min-height:100%;
+		display:flex;
 
 	}
 	.product-left{
-		position:fixed;
-		left:0;
-		top:0;
-		height:100%;
+	
 		width:20%;
 		background-color:rgba(220,220,220,.3);
 		overflow-y:auto;
@@ -108,8 +104,6 @@
 	}
 	.product-right{
 		width:calc( 80% - 10px );
-		float:right;
-		min-height:100%;
 	}
 	.product-right>div{
 

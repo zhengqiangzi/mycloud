@@ -11,6 +11,8 @@ import categroy_data from './mock_data/filter.json';
 
 import store from './store'
 
+import Menu from "./components/menu";
+
 
 var router=new VueRouter({
 
@@ -27,6 +29,10 @@ new Vue({
 
 		this.$store.commit("init_category_data",categroy_data)
 
+	},
+	components:{
+
+		"oy-menu":Menu
 	}
 }).$mount("#main")
 
