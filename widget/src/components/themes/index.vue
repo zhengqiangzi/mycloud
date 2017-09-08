@@ -64,7 +64,11 @@
 	}
 	.img-shower{
 		flex:1
-	}	
+	}
+	.img-shower>img{
+		max-width:100%;
+		height:auto;
+	}
 	.product-pro-list{
 		flex:1;
 		overflow:hidden;
