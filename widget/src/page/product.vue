@@ -8,7 +8,7 @@
 		render(h){
 
 			return (
-				<product-components></product-components>
+				<transition name="slide-fade"><product-components></product-components></transition>
 			)
 		},
 		components:{

@@ -16695,9 +16695,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 	render: function render(h) {
 
 		return h(
-			"home-components",
-			null,
-			[]
+			"transition",
+			{
+				attrs: { name: "slide-fade" }
+			},
+			[h(
+				"home-components",
+				null,
+				[]
+			)]
 		);
 	},
 
@@ -16722,9 +16728,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 	render: function render(h) {
 
 		return h(
-			"product-components",
-			null,
-			[]
+			"transition",
+			{
+				attrs: { name: "slide-fade" }
+			},
+			[h(
+				"product-components",
+				null,
+				[]
+			)]
 		);
 	},
 
@@ -16748,9 +16760,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 	render: function render(h) {
 
 		return h(
-			"themes-components",
-			null,
-			[]
+			"transition",
+			{
+				attrs: { name: "slide-fade" }
+			},
+			[h(
+				"themes-components",
+				null,
+				[]
+			)]
 		);
 	},
 

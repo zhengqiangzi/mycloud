@@ -461,3 +461,29 @@ ul{
   margin:0px;
   list-style-type: none;
 }
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+  transform:translate3d(0,0,0);
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+  opacity: 0;
+  transform:translate3d(-100%,0,0);
+}
+
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s ;
+}
+.slide-fade-enter
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(-100%);
+}
+.slide-fade-leave-to{
+  transform: translateX(100%);
+
+
+}

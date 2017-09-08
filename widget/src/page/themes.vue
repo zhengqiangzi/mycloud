@@ -6,7 +6,7 @@
 
 		render(h){
 
-			return (<themes-components></themes-components>)
+			return ( <transition name="slide-fade"><themes-components ></themes-components></transition>)
 
 		},
 		components:{
