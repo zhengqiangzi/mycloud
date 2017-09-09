@@ -8,8 +8,10 @@
 
 			return (<ul class="menu">
 
-						<li class="logo"><div><img src="image/logo.png"/></div></li>
-						<li class="back-btn"><i class="el-icon-arrow-left"></i></li>
+						<li class="logo"><router-link tag="div" to="/home"><img src="image/logo.png"/></router-link></li>
+						<li class="back-btn" on-click={()=>{ this.backHandler() }}>
+						<i class="el-icon-arrow-left"></i>
+						</li>
 						<li class="back-search">
 						  <el-input placeholder="请输入内容"  size="large">
 						    <el-button slot="append" icon="search"></el-button>
@@ -34,9 +36,17 @@
 			fav:function(){
 				return this.$store.getters.fav
 			}
+		},
+		methods:{
 
+			backHandler:function(){
 
+				this.$router.go(-1)
+			},
+			backHomeHandler:function(){
 
+				console.log(this.$router)
+			}
 		}
 
 	}
