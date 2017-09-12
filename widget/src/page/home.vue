@@ -7,7 +7,7 @@
 
 		render(h){
 
-			return (<home-components></home-components>)
+			return (<transition name="slide-fade"><home-components></home-components></transition>)
 		},
 		components:{
 
